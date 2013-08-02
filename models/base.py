@@ -5,7 +5,7 @@ import inspect
 
 from sqlalchemy.ext.declarative import declarative_base, DeclarativeMeta
 from sqlalchemy import Table, MetaData, Column
-from sqlalchemy import Integer, String, Unicode, UnicodeText, Boolean, DateTime, Float, Text, Binary, DECIMAL
+from sqlalchemy import Integer, String, Unicode, UnicodeText, Boolean, DateTime, Float, Text, Binary, DECIMAL, Date
 from sqlalchemy.orm import mapper, class_mapper
 from sqlalchemy import func, or_, desc
 
@@ -141,7 +141,6 @@ class Entity(object):
         for c in self.__table__.columns:
             if not c.name in self.__ignore_fields__:
                 d[c.name] = getattr(self, c.name)
-
 
         return d
 

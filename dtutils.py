@@ -13,6 +13,12 @@ def dt_to_str(dt, format='%Y-%m-%d %H:%M:%S'):
     else:
         return ''
 
+def date_to_str(dt, format='%Y-%m-%d'):
+    if dt:
+        return dt.strftime(format)
+    else:
+        return ''
+
 
 def str_to_dt(s, format='%Y-%m-%d %H:%M:%S'):
     if s:

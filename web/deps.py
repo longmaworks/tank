@@ -7,6 +7,7 @@ import datetime, time
 import traceback
 import base64
 import md5
+from decimal import Decimal
 
 from tornado.web import RequestHandler
 from tornado.web import Application
@@ -205,6 +206,10 @@ class BaseHandler(RequestHandler):
                 return d
             elif isinstance(ret, datetime.datetime):
                 return dtutils.dt_to_str(ret)
+            elif isinstance(ret, datetime.date):
+                return dtutils.date_to_str(ret)
+            elif isinstance(ret, Decimal):
+                return str(ret)
             else:
                 return ret
             
